@@ -30,7 +30,7 @@ public class Servicio {
     @Path("/prueba")
     @Produces(MediaType.APPLICATION_JSON)
     public Response prueba() {
-        List<Usuario> listausuario = prueba.obtenerUsuario();
+        //List<Usuario> listausuario = prueba.obtenerUsuario();
         System.out.println();
         return Response.status(Response.Status.OK).build();
     }
@@ -39,14 +39,14 @@ public class Servicio {
     @Path("/prueba2")
     @Produces(MediaType.APPLICATION_JSON)
     public Response prueba2() {
-        Usuario usuario = new Usuario();
-        usuario.setNombres("Mauricio");
-        usuario.setApellidos("Problemas");
-        usuario.setDocumento(BigInteger.valueOf(123456));
-        usuario.setUsuario("german");
-        usuario.setClave("1234");
-        usuario.setCorreo("shin@gmail.com");
-        prueba.guardarPrueba(usuario);
+//        Usuario usuario = new Usuario();
+//        usuario.setNombres("Mauricio");
+//        usuario.setApellidos("Problemas");
+//        usuario.setDocumento(BigInteger.valueOf(123456));
+//        usuario.setUsuario("german");
+//        usuario.setClave("1234");
+//        usuario.setCorreo("shin@gmail.com");
+//        prueba.guardarPrueba(usuario);
         System.out.println();
         return Response.status(Response.Status.OK).build();
     }
