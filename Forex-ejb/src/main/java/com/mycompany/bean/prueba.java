@@ -21,8 +21,7 @@ public class prueba implements pruebaLocal {
 
     @Override
     public void guardarPrueba(Usuario usuario){
-        try {
-            
+        try {         
             UsuarioJpaController jpa = new UsuarioJpaController();
             jpa.create(usuario);
         } catch (Exception ex) {
