@@ -39,7 +39,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuario.findByDocumento", query = "SELECT u FROM Usuario u WHERE u.documento = :documento"),
     @NamedQuery(name = "Usuario.findByUsuario", query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario"),
     @NamedQuery(name = "Usuario.findByClave", query = "SELECT u FROM Usuario u WHERE u.clave = :clave"),
-    @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo")})
+    @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo"),
+    @NamedQuery(name = "Usuario.findByToken", query = "SELECT u FROM Usuario u WHERE u.token = :token")})
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -64,6 +65,9 @@ public class Usuario implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "correo")
     private String correo;
+    @Size(max = 2147483647)
+    @Column(name = "token")
+    private String token;
     @OneToMany(mappedBy = "idUsuario")
     private List<UsuarioPar> usuarioParList;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
@@ -130,6 +134,14 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     @XmlTransient

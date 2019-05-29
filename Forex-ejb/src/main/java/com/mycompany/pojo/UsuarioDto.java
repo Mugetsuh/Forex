@@ -13,9 +13,9 @@ import java.util.List;
  * @author German
  */
 public class UsuarioDto {
-    
+
     private Integer id;
-    
+
     private String nombres;
 
     private String apellidos;
@@ -32,7 +32,35 @@ public class UsuarioDto {
 
     private SaldoDto saldo;
 
+    private String token;
+
     public UsuarioDto() {
+
+    }
+
+    public UsuarioDto(Integer id, String nombres, String apellidos, BigInteger documento, String usuario, String clave, String correo, SaldoDto saldo, String token) {
+        this.id = id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.documento = documento;
+        this.usuario = usuario;
+        this.clave = clave;
+        this.correo = correo;
+        this.saldo = saldo;
+        this.token = token;
+    }
+
+    public UsuarioDto(Integer id, String nombres, String apellidos, BigInteger documento, String usuario, String clave, String correo, List<UsuarioParDto> usuarioParList, SaldoDto saldo, String token) {
+        this.id = id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.documento = documento;
+        this.usuario = usuario;
+        this.clave = clave;
+        this.correo = correo;
+        this.usuarioParList = usuarioParList;
+        this.saldo = saldo;
+        this.token = token;
     }
 
     public UsuarioDto(Integer id, String nombres, String apellidos, BigInteger documento, String usuario, String clave, String correo, List<UsuarioParDto> usuarioParList, SaldoDto saldo) {
@@ -122,12 +150,20 @@ public class UsuarioDto {
         this.usuarioParList = usuarioParList;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public SaldoDto getSaldo() {
         return saldo;
     }
 
     public void setSaldo(SaldoDto saldo) {
         this.saldo = saldo;
-    }    
-    
+    }
+
 }

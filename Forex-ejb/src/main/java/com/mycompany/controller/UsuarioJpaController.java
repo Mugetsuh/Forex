@@ -41,7 +41,7 @@ public class UsuarioJpaController implements Serializable {
 
     public void create(Usuario usuario) throws RollbackFailureException, Exception {
         try {
-            emf.getTransaction().begin();                        
+            emf.getTransaction().begin();
             emf.persist(usuario);
             emf.getTransaction().commit();
         } catch (Exception ex) {

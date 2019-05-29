@@ -5,18 +5,18 @@
  */
 package com.mycompany.bean;
 
-import com.mycompany.entities.Usuario;
-import java.util.List;
+import com.mycompany.pojo.UsuarioDto;
 import javax.ejb.Local;
+import javax.json.JsonObject;
 
 /**
  *
  * @author German
  */
 @Local
-public interface pruebaLocal {
+public interface RegistroLocal {
     
-//    public void guardarPrueba(Usuario usuario);
-//    
-//    public List<Usuario> obtenerUsuario();
+    public JsonObject registro (UsuarioDto usuario);
+    
+    public JsonObject consultaRegistro ();
 }

@@ -19,20 +19,20 @@ import java.util.logging.Logger;
 @Stateless
 public class prueba implements pruebaLocal {
 
-    @Override
-    public void guardarPrueba(Usuario usuario){
-        try {         
-            UsuarioJpaController jpa = new UsuarioJpaController();
-            jpa.create(usuario);
-        } catch (Exception ex) {
-            Logger.getLogger(prueba.class.getName()).log(Level.SEVERE, null, ex);
-        }             
-    }
-    
-    @Override
-    public List<Usuario> obtenerUsuario() {
-        UsuarioJpaController jpa = new UsuarioJpaController();
-        List<Usuario> listaUsusario = jpa.findUsuarioEntities();
-        return listaUsusario;
-    }
+//    @Override
+//    public void guardarPrueba(Usuario usuario){
+//        try {         
+//            UsuarioJpaController jpa = new UsuarioJpaController();
+//            jpa.create(usuario);
+//        } catch (Exception ex) {
+//            Logger.getLogger(prueba.class.getName()).log(Level.SEVERE, null, ex);
+//        }             
+//    }
+//    
+//    @Override
+//    public List<Usuario> obtenerUsuario() {
+//        UsuarioJpaController jpa = new UsuarioJpaController();
+//        List<Usuario> listaUsusario = jpa.findUsuarioEntities();
+//        return listaUsusario;
+//    }
 }

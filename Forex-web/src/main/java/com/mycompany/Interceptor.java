@@ -32,6 +32,9 @@ public class Interceptor implements ContainerRequestFilter {
         if (url.contains("api/autho")) {
             return;
         }
+        if (url.contains("api/registro")) {
+            return;
+        }
         String token = requestContext.getHeaderString("tokenAuto");
         if (token == null) {
             JsonObject json = Json.createObjectBuilder()
