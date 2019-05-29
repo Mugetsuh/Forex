@@ -39,18 +39,18 @@ public class ServicioUsuario {
 //        return Response.status(Response.Status.OK).entity(usuario.getListaUsuario()).build();
 //    }
     
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("login")    
-    public Response validarUsuario(UsuarioDto usuario) {  
-//        JsonObject json = usuario.login(usuario);
-        List<UsuarioDto> lis = login.login(usuario);
-        return Response.status(Response.Status.OK).entity(lis).build();
-//        if (json.containsKey("mensaje")) {           
-//            return Response.status(Response.Status.BAD_REQUEST).entity(json).build();
-//        } else {
-//            return Response.status(Response.Status.OK).entity(json).build();
-//        }              
-    }
+//    @POST
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Path("login")    
+//    public Response validarUsuario(UsuarioDto usuario) {  
+////        JsonObject json = usuario.login(usuario);
+////        List<UsuarioDto> lis = login.login(usuario);
+////        return Response.status(Response.Status.OK).entity(lis).build();
+////        if (json.containsKey("mensaje")) {           
+////            return Response.status(Response.Status.BAD_REQUEST).entity(json).build();
+////        } else {
+////            return Response.status(Response.Status.OK).entity(json).build();
+////        }              
+//    }
 }

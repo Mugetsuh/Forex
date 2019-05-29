@@ -8,6 +8,7 @@ package com.mycompany.bean;
 import com.mycompany.pojo.UsuarioDto;
 import java.util.List;
 import javax.ejb.Local;
+import javax.json.JsonObject;
 
 /**
  *
@@ -16,5 +17,5 @@ import javax.ejb.Local;
 @Local
 public interface LoginLocal {
     
-    public List<UsuarioDto> login (UsuarioDto usuario);
+    public JsonObject login(String user, String pass);
 }

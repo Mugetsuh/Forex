@@ -8,10 +8,11 @@ package com.mycompany.bean;
 import com.mycompany.controller.UsuarioJpaController;
 import com.mycompany.entities.Usuario;
 import com.mycompany.pojo.UsuarioDto;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.json.Json;
 import javax.json.JsonObject;
 
@@ -19,13 +20,13 @@ import javax.json.JsonObject;
  *
  * @author German
  */
-@Stateful
+@Stateless
 public class Registro implements RegistroLocal {
 
     @Override
     public JsonObject registro(UsuarioDto usuario) {
         JsonObject json = Json.createObjectBuilder()
-                .add("mensaje", "credenciales incorrectas")
+                .add("Mensaje", "Credenciales Incorrectas")
                 .build();
         try {
             UsuarioJpaController jpa = new UsuarioJpaController();
@@ -39,36 +40,24 @@ public class Registro implements RegistroLocal {
             u.setCorreo(usuario.getCorreo());
             u.setToken(usuario.getToken());
             jpa.create(u);
-//            json = Json.createObjectBuilder()
-//                    .add("tokenAuto", "id" + usuario.getId() + "nombres" + usuario.getNombres()
-//                            + "apellidos" + usuario.getApellidos() + "documento" + usuario.getDocumento()
-//                            + "usuario" + usuario.getUsuario() + "clave" + usuario.getClave()
-//                            + "correo" + usuario.getCorreo() + usuario.getToken())
-//                    .build();
+            json = Json.createObjectBuilder()
+                    .add("Mensaje", "Registro Exitoso")
+                    .build();
         } catch (Exception ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
         }
         return json;
     }
 
-    @Override
-    public JsonObject consultaRegistro() {
-        JsonObject json = Json.createObjectBuilder()
-                .add("mensaje", "credenciales incorrectas")
-                .build();
-        UsuarioJpaController jpa = new UsuarioJpaController();
-        Usuario u = jpa.findUsuario(1);
-        System.out.println(u.getId() + " " + u.getNombres());
-        json = Json.createObjectBuilder()
-                .add("id", u.getId())
-                .add("nombres", u.getNombres())
-                .add("apellidos", u.getApellidos())
-                .add("documento", u.getDocumento())
-                .add("usuario", u.getUsuario())
-                .add("clave", u.getClave())
-                .add("correo", u.getCorreo())
-                .add("token", u.getToken())
-                .build();
-        return json;
+
+    public List<Usuario> consultaRegistro() {
+        List<Usuario> u = new ArrayList<>();
+        try {
+            UsuarioJpaController jpa = new UsuarioJpaController();
+            u = jpa.findUsuarioEntities();
+        } catch (Exception ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return u;
     }
 }

@@ -5,7 +5,9 @@
  */
 package com.mycompany.bean;
 
+import com.mycompany.entities.Usuario;
 import com.mycompany.pojo.UsuarioDto;
+import java.util.List;
 import javax.ejb.Local;
 import javax.json.JsonObject;
 
@@ -18,5 +20,4 @@ public interface RegistroLocal {
     
     public JsonObject registro (UsuarioDto usuario);
     
-    public JsonObject consultaRegistro ();
 }
